@@ -289,6 +289,8 @@ function showMark(element) {
     popup.style.maxWidth = '120ch'
     popup.style.position = 'relative' // necessary for  zIndex to work
     popup.style.top = `${erect.height}px` // TODO add test for this (need a multiline header, like on youtube)
+    var offscreendiff = window.innerWidth - erect.right
+    if (offscreendiff < 0) { popup.style.left = `${offscreendiff}px` } // If popup goes off-screen, subtract the difference.
     // TODO would be cool to reuse the same style used by the sidebar...
     const close = document.createElement('span')
     close.classList.add(Cls.CLOSE)
